@@ -74,10 +74,11 @@ public class AccessibilityResults {
 	public void showTestResults(String target) {
 		int count = 0;
 		target = target.toLowerCase();
+		
 		// Iterate through all tests
 		for (AccessibilityTest test: tests) {
 			// If the test's description contains the target string, print it
-			if (test.getDescription().contains(target)) {
+			if (test.getDescription().toLowerCase().contains(target)) {
 				System.out.println(test.toString());
 				count++;
 			}
@@ -99,7 +100,7 @@ public class AccessibilityResults {
 		// Iterate through all tests
 		for (AccessibilityTest test: tests) {
 			// If the test's category contains the target string, print it
-			if (test.getCategory().contains(ctgr)) {
+			if (test.getCategory().toLowerCase().contains(ctgr)) {
 				System.out.println(test.toString());
 				count++;
 			}
@@ -143,7 +144,7 @@ public class AccessibilityResults {
 		
 		for (AccessibilityTest test: tests) {
 			// Check for valid category
-			if (!test.getCategory().contains(ctgr)) continue;
+			if (!test.getCategory().toLowerCase().contains(ctgr)) continue;
 			
 			// Choose the checker result based on the target checker string
 			String checkerResult;
