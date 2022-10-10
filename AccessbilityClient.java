@@ -19,5 +19,19 @@ public class AccessbilityClient {
 		// Tests for the numPass method
 		System.out.println(a11y.numPass("Goog", "")); // 23 
 		System.out.println(a11y.numPass("lint", "htm")); // 2
+		
+		// Code used for populating the report table
+//		String[] categories  = {"content", "layout", "colour/contrast", "typography", "language", "title", "headings", "lists", "tables",
+//				"images", "multimedia", "links", "buttons", "forms", "navigation", "keyboard", "frames", "css", "html", ""};
+//		
+//		for (String category: categories) {
+//			System.out.println(category);
+//			System.out.println(a11y.numPass("google", category));
+//			System.out.println(a11y.numPass("wave", category));
+//			System.out.println(a11y.numPass("sortsite", category));
+//			System.out.println(a11y.numPass("aslint", category));
+//			a11y.showByCategory(category);
+//			System.out.println("----------");
+//		}
 	}
 }

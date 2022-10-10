@@ -24,8 +24,9 @@ public class AccessibilityResults {
 				// Scan each line and store into an AccessibilityTest object
 				String line = fScan.nextLine();
 				Scanner lScan = new Scanner(line);
+				
 				// 6-length String array for storing fields of a AccessbilityTest object
-				String[] testFields = new String[6];
+				String[] fields = new String[6];
 				// ArrayList for storing string tokens of the description of a test
 				ArrayList<String> descTokens = new ArrayList<>();
 
@@ -34,7 +35,7 @@ public class AccessibilityResults {
 					String token = lScan.next();
 					if (index < 5) {
 						// If at indexes < 5, we are parsing the first 5 fields of the test
-						testFields[index] = token;
+						fields[index] = token;
 						index++;
 					} else {
 						// If at index 5, we are parsing the description of the test
@@ -42,11 +43,11 @@ public class AccessibilityResults {
 					} 
 				}
 
-				// Create and add description to the `testFields` array
-				testFields[5] = String.join(" ", descTokens); // TODO: Might need to be .iterator()
+				// Create and add description to the `fields` array
+				fields[5] = String.join(" ", descTokens);
 
 				// Add AccessbilityTest object to `tests` and close line scanner
-				tests.add(new AccessibilityTest(testFields));
+				tests.add(new AccessibilityTest(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5]));
 				lScan.close();
 			}
 
@@ -84,7 +85,7 @@ public class AccessibilityResults {
 			}
 		}
 
-		System.out.printf("Total tests matching: %d%n", count);
+		System.out.printf("Total tests matching: %d%n%n", count);
 	}
 
 	/**
@@ -106,7 +107,7 @@ public class AccessibilityResults {
 			}
 		}
 		
-		System.out.printf("Total tests in category: %d%n", count);
+		System.out.printf("Total tests in category: %d%n%n", count);
 	}
 
 	/**
@@ -127,7 +128,7 @@ public class AccessibilityResults {
 			}
 		}
 		
-		System.out.printf("Total tests failed: %d%n", count);
+		System.out.printf("Total tests failed: %d%n%n", count);
 	}
 
 	/**
