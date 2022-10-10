@@ -19,7 +19,39 @@ public class AccessibilityResults {
 	 */
 	public AccessibilityResults(String fname) {
 		try {
-			Scanner fscan = new Scanner(new File(fname));
+			Scanner fScan = new Scanner(new File(fname));
+			while (fScan.hasNextLine()) {
+				// Scan each line and store into an AccessibilityTest object
+				String line = fScan.nextLine();
+				Scanner lScan = new Scanner(line);
+				// 6-length String array for storing fields of a AccessbilityTest object
+				String[] testFields = new String[6];
+				// ArrayList for storing string tokens of the description of a test
+				ArrayList<String> descTokens = new ArrayList<>();
+				
+				int index = 0; // Keeps track of which information of the test is being processed
+				while (lScan.hasNext()) {
+					String token = lScan.next();
+					if (index < 5) {
+						// If at indexes < 5, we are parsing the first 5 fields of the test
+						testFields[index] = token;
+ 						index++;
+					} else {
+						// If at index 5, we are parsing the description of the test
+						descTokens.add(token);
+					} 
+				}
+				
+				// Create and add description to the `testFields` array
+				testFields[5] = String.join(" ", descTokens); // TODO: Might need to be .iterator()
+				
+				// Add AccessbilityTest object to `tests` and close line scanner
+				tests.add(new AccessibilityTest(testFields));
+				lScan.close();
+			}
+			
+			// Wrap up by closing file scanner
+			fScan.close();
 			
 		} catch (FileNotFoundException e) {
 			System.out.printf("File %s not found. Please try again!%n", fname);
@@ -40,7 +72,18 @@ public class AccessibilityResults {
 	 * @param target The test detail string to be matched
 	 */
 	public void showTestResults(String target) {
+		int count = 0;
 		
+		// Iterate through all tests
+		for (AccessibilityTest test: tests) {
+			// If the test's description contains the target string, print it
+			if (test.getDescription().contains(target)) {
+				System.out.println(test.toString());
+				count++;
+			}
+		}
+		
+		System.out.printf("Total tests matching: %d%n", count);
 	}
 	
 	/**
@@ -50,7 +93,18 @@ public class AccessibilityResults {
 	 * @param ctgr The test category to be matched
 	 */
 	public void showByCategory(String ctgr) {
+		int count = 0;
 		
+		// Iterate through all tests
+		for (AccessibilityTest test: tests) {
+			// If the test's description contains the target string, print it
+			if (test.getDescription().contains(ctgr)) {
+				System.out.println(test.toString());
+				count++;
+			}
+		}
+		
+		System.out.printf("Total tests in category: %d%n", count);
 	}
 	
 	/**

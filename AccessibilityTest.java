@@ -20,13 +20,13 @@ public class AccessibilityTest {
 	 * @param asl aslint result
 	 * @param desc description of the test
 	 */
-	public AccessibilityTest(String cat, String gg, String wv, String ss, String asl, String desc) {
-		this.category = cat;
-		this.google = gg;
-		this.wave = wv;
-		this.sortsite = ss;
-		this.aslint = asl;
-		this.description = desc;
+	public AccessibilityTest(String[] arrStr) {
+		this.category = arrStr[0];
+		this.google = arrStr[1];
+		this.wave = arrStr[2];
+		this.sortsite = arrStr[3];
+		this.aslint = arrStr[4];
+		this.description = arrStr[5];
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class AccessibilityTest {
 	@Override
 	public String toString() {
 		return String.format(
-				"Accessbility Test:%nTest Category: %s%nGoogle result: %s%nWAVE result: %s%nSort-Site result: %s%nASLint result: %s%nTest Description: %s%n",
+				"Accessbility Test:%n%tTest Category: %s%n%tTest Description: %s%n%tGoogle result: %s%n%tWAVE result: %s%n%tSort-Site result: %s%n%tASLint result: %s%n",
 				this.category,
 				this.google,
 				this.wave,
