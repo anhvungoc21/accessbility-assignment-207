@@ -1,5 +1,15 @@
 package accessibility;
 
+/*
+Names of all authors: Anh Vu
+Assignment name: Assignment 3
+Assignment due date: October 10, 2022
+Written/online sources used: None
+Help obtained: None
+I confirm that the above list of sources is complete AND that I have not talked to
+anyone else (e.g., CSC 207 students) about the solution to this problem
+*/
+
 public class AccessbilityClient {
 
 	public static void main(String[] args) {

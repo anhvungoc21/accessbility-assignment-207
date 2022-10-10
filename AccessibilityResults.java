@@ -85,7 +85,7 @@ public class AccessibilityResults {
 			}
 		}
 
-		System.out.printf("Total tests matching: %d%n%n", count);
+		System.out.printf("%nTotal tests matching: %d%n%n", count);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class AccessibilityResults {
 			}
 		}
 		
-		System.out.printf("Total tests in category: %d%n%n", count);
+		System.out.printf("%nTotal tests in category: %d%n%n", count);
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class AccessibilityResults {
 			}
 		}
 		
-		System.out.printf("Total tests failed: %d%n%n", count);
+		System.out.printf("%nTotal tests failed: %d%n%n", count);
 	}
 
 	/**

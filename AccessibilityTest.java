@@ -83,7 +83,7 @@ public class AccessibilityTest {
 	@Override
 	public String toString() {
 		return String.format(
-				"%s: %s%nGoogle result: %s%nWAVE result: %s%nSort-Site result: %s%nASLint result: %s%n",
+				"%s: %s Google: %s WAVE: %s SortSite: %s ASLint: %s",
 				this.category,
 				this.description,
 				this.google,
